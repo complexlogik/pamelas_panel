@@ -1,5 +1,4 @@
 
-
 <div class="container">
   <header class="header">
     <H1 class='school-title'>NYCDA</h1>
@@ -18,7 +17,7 @@
   <div class="content">
     <nav class="sidebar">
       <ul class="side-nav">
-      
+
         <li class="side-nav_item">
           <a href="/" class="side-nav_link">
             <%= image_tag("home.svg", class:'side-nav_icon')  %>
@@ -60,7 +59,7 @@
               <span></span>
           </a>
         </li>
-      </ul>
+    
       </ul>
 
 
@@ -72,10 +71,10 @@
 
       <div class="overview">
         <h1 class="overview_heading">
-          Cohorts
+          Courses
         </h1>
 
-      <% if notice != nil %>
+        <% if notice != nil %>
         <div class="overview_rating" id="notice">
           <div class="overview_rating-average">
             <%= notice %>
@@ -88,47 +87,38 @@
 
       <div class="detail">
         <div class="description">
-         
+          <p class="paragraph">
 
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Start date</th>
+              <th>End date</th>
+              <th>Course</th>
+              <th colspan="3"><%= link_to 'New Cohort', new_cohort_path, class:" test" %>
 
+              </th>
+            </tr>
+          </thead>
 
+          <tbody>
+          <% @cohorts.each do |cohort| %>
+          <tr>
+          <td><%= cohort.name %></td>
+          <td><%= cohort.start_date %></td>
+          <td><%= cohort.end_date %></td>
+          <td><%= cohort.course_id %></td>
+          <td><%= link_to 'Show', cohort %></td>
+          <td><%= link_to 'Edit',edit_cohort_path(cohort) %></td>
+          <td><%= link_to 'Destroy',cohort, method: :delete,data: {       confirm: 'Are you sure?' } %></td>
+          </tr>
+          <% end %>
+          </tbody>
+        </table><br>
 
+      <br>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Course</th>
-      <th colspan="3"><%= link_to 'New Cohort', new_cohort_path, class:"test"%>
-            
-            </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @cohorts.each do |cohort| %>
-      <tr>
-        <td><%= cohort.name %></td>
-        <td><%= cohort.start_date %></td>
-        <td><%= cohort.end_date %></td>
-        <td><%= cohort.course_id %></td>
-        <td><%= link_to 'Show', cohort %></td>
-        <td><%= link_to 'Edit', edit_cohort_path(cohort) %></td>
-        <td><%= link_to 'Destroy', cohort, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-
-
-
-        </div>
-
-
-    </main>
     </div>
+  </main>
+</div>

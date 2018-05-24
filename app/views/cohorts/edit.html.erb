@@ -1,6 +1,8 @@
 
 <div class="container">
+
   <header class="header">
+
     <H1 class='school-title'>NYCDA</h1>
 
     <nav class="main-nav">
@@ -11,6 +13,7 @@
         <a href="/">Sign Up</a>
       </div>
     </nav>
+
   </header>
 
 
@@ -59,49 +62,36 @@
               <span></span>
           </a>
         </li>
-      </ul>
-      </ul>
 
-
+      </ul>
     </nav>
-
-
 
     <main class="main-view">
 
       <div class="overview">
-        <h1 class="overview_heading">
-          Cohorts
-        </h1>
 
-      <% if notice != nil %>
-        <div class="overview_rating" id="notice">
-          <div class="overview_rating-average">
-            <%= notice %>
-          </div>  
-        </div>
+        <h1 class="overview_heading"> Cohorts </h1>
+
+        <% if notice != nil %>
+          <div class="overview_rating" id="notice">
+            <div class="overview_rating-average">
+              <%= notice %>
+            </div>  
+          </div>
         <% end %>
 
       </div>
 
-
       <div class="detail">
+
         <div class="description">
-         <h1>Editing Cohort</h1>
 
-<%= render 'form', cohort: @cohort %>
+          <h1>Editing Cohort</h1>
 
-<%= link_to 'Show', @cohort %> |
-<%= link_to 'Back', cohorts_path %>
-
-
-
-
-
-
+          <%= render 'form', cohort: @cohort %>
+          <%= link_to 'Show', @cohort %> |
+          <%= link_to 'Back', cohorts_path %>
 
         </div>
-
-
     </main>
-    </div>
+</div>
