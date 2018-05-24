@@ -1,0 +1,122 @@
+
+
+<div class="container">
+  <header class="header">
+    <H1 class='school-title'>NYCDA</h1>
+
+    <nav class="main-nav">
+      <div>
+        <a href="/">Sign In</a>
+      </div>
+      <div>
+        <a href="/">Sign Up</a>
+      </div>
+    </nav>
+  </header>
+
+
+  <div class="content">
+    <nav class="sidebar">
+      <ul class="side-nav">
+      
+         <li class="side-nav_item">
+          <a href="/" class="side-nav_link">
+            <%= image_tag("home.svg", class:'side-nav_icon')  %>
+            <span></span>
+          </a>
+        </li>
+
+        <li class="side-nav_item">
+          <a href="/teachers" class="side-nav_link">
+            <%= image_tag("people.svg", class:'side-nav_icon') %> 
+              <span></span>
+          </a>
+        </li>
+
+        <li class="side-nav_item side-nav_item--active">
+          <a href="/students" class="side-nav_link">
+            <%= image_tag("student.svg",class:'side-nav_icon')   %>
+              <span></span>
+          </a>
+        </li>
+
+        <li class="side-nav_item">
+          <a href="/cohorts" class="side-nav_link">
+            <%= image_tag("cohort.svg",class:'side-nav_icon') %>
+              <span></span>
+          </a>
+        </li>
+
+        <li class="side-nav_item">
+          <a href="/courses" class="side-nav_link">
+            <%= image_tag("course.svg", class:'side-nav_icon')  %>
+              <span></span>
+          </a>
+        </li>
+
+        <li class="side-nav_item">
+          <a href="/" class="side-nav_link">
+            <%= image_tag("settings.svg", class:'side-nav_icon')  %>
+              <span></span>
+          </a>
+        </li>
+      </ul>
+
+
+    </nav>
+
+
+
+    <main class="main-view">
+
+      <div class="overview">
+        <h1 class="overview_heading">
+          Students
+        </h1>
+            
+      <% if notice != nil %>
+        <div class="overview_rating" id="notice">
+          <div class="overview_rating-average">
+            <%= notice %>
+          </div>  
+        </div>
+        <% end %>
+
+      </div>
+
+
+      <div class="detail">
+        <div class="description">
+         <p class="paragraph">
+
+
+
+<p>
+  <strong>First name:</strong>
+  <%= @student.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @student.last_name %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @student.age %>
+</p>
+
+<p>
+  <strong>Education:</strong>
+  <%= @student.education %>
+</p>
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>
+
+
+
+          <br>
+      </div>
+    </main>
+  </div>

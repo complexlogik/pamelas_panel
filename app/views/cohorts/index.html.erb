@@ -1,0 +1,134 @@
+
+
+<div class="container">
+  <header class="header">
+    <H1 class='school-title'>NYCDA</h1>
+
+    <nav class="main-nav">
+      <div>
+        <a href="/">Sign In</a>
+      </div>
+      <div>
+        <a href="/">Sign Up</a>
+      </div>
+    </nav>
+  </header>
+
+
+  <div class="content">
+    <nav class="sidebar">
+      <ul class="side-nav">
+      
+        <li class="side-nav_item">
+          <a href="/" class="side-nav_link">
+            <%= image_tag("home.svg", class:'side-nav_icon')  %>
+            <span></span>
+          </a>
+        </li>
+
+        <li class="side-nav_item">
+          <a href="/teachers" class="side-nav_link">
+            <%= image_tag("people.svg", class:'side-nav_icon') %> 
+              <span></span>
+          </a>
+        </li>
+
+        <li class="side-nav_item">
+          <a href="/students" class="side-nav_link">
+            <%= image_tag("student.svg",class:'side-nav_icon')   %>
+              <span></span>
+          </a>
+        </li>
+
+        <li class="side-nav_item side-nav_item--active">
+          <a href="/cohorts" class="side-nav_link">
+            <%= image_tag("cohort.svg",class:'side-nav_icon') %>
+              <span></span>
+          </a>
+        </li>
+
+        <li class="side-nav_item">
+          <a href="/courses" class="side-nav_link">
+            <%= image_tag("course.svg", class:'side-nav_icon')  %>
+              <span></span>
+          </a>
+        </li>
+
+        <li class="side-nav_item">
+          <a href="/" class="side-nav_link">
+            <%= image_tag("settings.svg", class:'side-nav_icon')  %>
+              <span></span>
+          </a>
+        </li>
+      </ul>
+      </ul>
+
+
+    </nav>
+
+
+
+    <main class="main-view">
+
+      <div class="overview">
+        <h1 class="overview_heading">
+          Cohorts
+        </h1>
+
+      <% if notice != nil %>
+        <div class="overview_rating" id="notice">
+          <div class="overview_rating-average">
+            <%= notice %>
+          </div>  
+        </div>
+        <% end %>
+
+      </div>
+
+
+      <div class="detail">
+        <div class="description">
+         
+
+
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Course</th>
+      <th colspan="3"><%= link_to 'New Cohort', new_cohort_path, class:"test"%>
+            
+            </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cohorts.each do |cohort| %>
+      <tr>
+        <td><%= cohort.name %></td>
+        <td><%= cohort.start_date %></td>
+        <td><%= cohort.end_date %></td>
+        <td><%= cohort.course_id %></td>
+        <td><%= link_to 'Show', cohort %></td>
+        <td><%= link_to 'Edit', edit_cohort_path(cohort) %></td>
+        <td><%= link_to 'Destroy', cohort, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+
+        </div>
+
+
+    </main>
+    </div>
